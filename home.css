@@ -1,0 +1,103 @@
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.error{
+    display: none;
+    width: 100%;
+    background-color: #fbe5ec;
+    color: #9c546c;
+    font-family: "Calibri";
+    font-weight: 700;
+    padding: 10px;
+}
+
+.success{
+    display: none;
+    width: 100%;
+    background-color: #c0e6bf;
+    color: #2a7628;
+    font-family: "Calibri";
+    font-weight: 700;
+    padding: 10px;
+}
+
+section{
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-page-div{
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 90%;
+}
+
+.info-page-div h2{
+    padding: 10px;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.update-form{
+    display: flex;
+    flex-direction: row;
+}
+
+.update-profile{
+    flex: 2;
+    background-color: #3c0008;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.update-profile img{
+    width: 60%;
+    margin-bottom: 30px;
+}
+
+.update-profile a{
+    text-decoration: none;
+    color: #3c0008;
+    background-color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-family: "Calibri";
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.update-profile a:hover{
+    background-color: #daa520;
+    color: white;
+}
+
+.update-input{
+    flex: 4;
+    padding: 20px;
+}
+
+.input-div{
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-div{
+    font-family: "Calibri";
+    font-weight: 600;
+}
+
+.input-box, input[type="date"], select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-family: "Ubuntu", sans-serif;
+    border-radius: 5px;
+    margin-top: 5px;
+}
