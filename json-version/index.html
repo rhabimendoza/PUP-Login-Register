@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <title>
+            PUP
+        </title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Rhabi Mendoza">
+
+        <link rel="stylesheet" href="index.css">
+
+        <link rel="icon" type="image/x-icon" href="res/logo.png">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+        <script>
+            window.onload = function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const status = urlParams.get('status');
+                if (status) {
+                    alert(getStatusMessage(status));
+                }
+            };
+    
+            function getStatusMessage(status) {
+                switch (status) {
+                    case 'data_saved':
+                        return 'Account created successfully!';
+                    case 'email_exist':
+                        return 'Email already used by another account!';
+                    case 'login_success':
+                        return 'Login successful!';
+                    case 'login_error':
+                        return 'Invalid email or password.';
+                    case 'data_error':
+                        return 'Error in saving data!';
+                    default:
+                        return '';
+                }
+            }
+        </script>
+
+    </head>
+
+    <body>
+        
+        <main>
+
+            <div class="main-div">
+
+                <div class="forms-div">
+
+                    <form class="login-form" id="log-form" method="POST" action="login.php">
+
+                        <div class="form-head">
+                            <img src="res/logo.png">
+                            <h6>Polytechnic University of the Philippines</h6>
+                        </div>  
+
+                        <div class="form-title">
+                            <h1>Log in to your account to continue</h1>
+                            <p>Don't have an account?</p>
+                            <a href="#" class="toggle"><b>Register here</b></a>
+                        </div>
+
+                        <div>
+                            <div class="input-div">
+                                <input type="email" autocomplete="off" class="input-box" name="log-email">
+                                <label>Email</label>
+                            </div>
+                            <div class="input-div">
+                                <input type="password" autocomplete="off" class="input-box" name="log-pword">
+                                <label>Password</label>
+                            </div>
+                        </div>
+
+                        <input type="submit" value="LOGIN" class="form-btn" onclick="logAcc(event)">
+
+                    </form>
+                    
+                    <form class="register-form" id="regi-form" method="POST" action="register.php">
+
+                        <div class="form-head">
+                            <img src="res/logo.png">
+                            <h6>Polytechnic University of the Philippines</h6>    
+                        </div>  
+                     
+                        <div class="form-title">
+                            <h1>Register to get started</h1>
+                            <p>Already have an account?</p>
+                            <a href="#" class="toggle"><b>Log in here</b></a>
+                        </div>
+                    
+                        <div class="main-register">
+                            <div class="reg-first"> 
+                                <div class="input-div">
+                                    <input type="text" autocomplete="off" class="input-box" name="reg-name">
+                                    <label>Full Name*</label>
+                                </div>
+                                <div class="input-div">
+                                    <p>Birthday*</p>
+                                    <input type="date" name="reg-bdate">
+                                </div>
+                                <div class="input-div">
+                                    <p>Gender*</p>
+                                    <input type="radio" value="Female" name="reg-gen">
+                                        <span>Female</span>
+                                    <input type="radio" value="Male" name="reg-gen">
+                                        <span>Male</span>
+                                    <input type="radio" value="Prefer not to say" name="reg-gen">
+                                    <span>Prefer not to say</span>        
+                                </div>
+                                <div class="input-div">
+                                    <input type="button" value="NEXT" class="form-btn" onclick="showSecond()">
+                                </div>
+                            </div>
+                            <div class="reg-second hidden">
+                                <div class="input-div">
+                                    <p>Address*</p>
+                                    <select id="regionSelect" onchange="updateProvinceOptions()" name="reg-regi">
+                                        <option>Select Region</option>
+                                    </select>
+                                    <select id="provinceSelect" name="reg-prov">
+                                        <option>Select Province</option>
+                                    </select>
+                                </div>
+                                <div class="input-div">
+                                    <input type="text" autocomplete="off" class="input-box" name="reg-email">
+                                    <label>Email*</label>
+                                </div>
+                                <div class="input-div">
+                                    <input type="password" autocomplete="off" class="input-box" name="reg-pword">
+                                    <label>Password*</label>
+                                </div>
+                                <div class="input-div">
+                                    <input type="password" autocomplete="off" class="input-box" name="reg-cpword">
+                                    <label>Confirm Password*</label>
+                                </div>
+                                <div class="input-div">
+                                    <input type="button" value="BACK" class="form-btn" onclick="showFirst()">
+                                    <input type="submit" value="REGISTER" class="form-btn" onclick="regiAcc(event)">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="cover-div">
+                    <img src="res/pup.jpg" class="image">
+                </div>
+             
+            </div>
+
+        </main>
+     
+        <script src="all.js"></script>
+
+    </body>
+
+</html>

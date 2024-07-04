@@ -1,0 +1,280 @@
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.error{
+    display: none;
+    width: 100%;
+    background-color: #fbe5ec;
+    color: #9c546c;
+    font-family: "Calibri";
+    font-weight: 700;
+    padding: 10px;
+}
+
+.success{
+    display: none;
+    width: 100%;
+    background-color: #c0e6bf;
+    color: #2a7628;
+    font-family: "Calibri";
+    font-weight: 700;
+    padding: 10px;
+}
+
+.hidden{
+    display: none;
+}
+
+main{
+    min-height: 100vh;
+    background-color: #3c0008;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-div{
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 520px;
+    background-color: white;
+    box-shadow: 10px 10px 10px 0px black;
+}
+
+.forms-div{
+    position: absolute;
+    height: 100%;
+    width: 45%;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    transition: 0.8s ease-in-out;
+}
+
+form{
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    transition: opacity 0.02s 0.4s;
+}
+
+form.register-form{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.form-head{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.form-head img{
+    width: 50px;
+}
+
+.form-head h6{
+    margin: 5px;
+    font-size: 18px;
+    color: #3c0008;
+    font-family: "Oswald", sans-serif;
+}
+
+.form-title h1{
+    font-weight: 600;
+    color: #3c0008;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.form-title p{
+    color: gray;
+    font-weight: 400;
+    font-size: 12px;
+    display: inline;
+    font-family: "Calibri";
+}
+
+.toggle{
+    color: #daa520;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 400;
+    transition: 0.3s;
+    font-family: "Calibri";
+}
+
+.toggle:hover{
+    color: #3c0008;
+}
+
+.input-div{
+    position: relative;
+    height: 35px;
+    margin-bottom: 15px;
+}
+
+.input-div p{
+    font-family: "Calibri";
+    font-size: 15px;
+    color: gray;
+}
+
+.input-box{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #3c0008;
+    padding: 0;
+    font-size: 15px;
+    font-family: "Ubuntu", sans-serif;
+    color: #3c0008;
+    transition: 0.5s;
+    font-weight: 600;
+}
+
+label{
+    font-family: "Calibri";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 15px;
+    color: gray;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-box.active + label{
+    font-size: 10px;
+    top: -2px;
+}
+
+input[type="date"], span, input[type="file"], select{
+    font-family: "Ubuntu", sans-serif;
+}
+
+input[type="date"]{
+    width: 100%;
+}
+
+span{
+    font-size: 13px;
+}
+
+.form-btn{
+    display: inline-block;
+    width: calc(50% - 10px);
+    height: 40px;
+    background-color: #3c0008;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+.form-btn:hover{
+    background-color: #daa520;
+}
+
+.cover-div{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 50%;
+    top: 0;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    transition: 0.8s ease-in-out;
+}
+
+.image{
+    width: 100%;
+    transition: opacity 0.3s, transform 0.5s;
+}
+
+main.activate form.login-form{
+    opacity: 0;
+    pointer-events: none;
+}
+
+main.activate form.register-form{
+    opacity: 1;
+    pointer-events: all;
+}
+
+main.activate .forms-div{
+    left: 55%;
+}
+
+main.activate .cover-div{
+    left: 0%;
+}
+
+@media (max-width: 850px) {
+  .main-div {
+    height: auto;
+    max-width: 550px;
+    overflow: hidden;
+  }
+
+  .forms-div {
+    position: revert;
+    width: 100%;
+    height: auto;
+  }
+
+  form {
+    max-width: revert;
+    padding: 1.5rem 2.5rem 2rem;
+    transition: transform 0.8s ease-in-out, opacity 0.45s linear;
+  }
+
+  .form-title {
+    margin: 2rem 0;
+  }
+
+  .cover-div{
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  main {
+    padding: 1rem;
+  }
+
+  .cover-div{
+    display: none;
+  }
+
+  .cover-div {
+    padding: 1.5rem 1rem;
+  }
+
+  form {
+    padding: 1rem 2rem 1.5rem;
+  }
+}
